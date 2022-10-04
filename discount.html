@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>Discounts</title>
+ </head>
+<body>
+
+<h2>Venkata Sravan Telu computes discounts</h2>
+
+<form>
+    <label for="label_amount">Enter base amount</label>
+    <input type ="number" id="base_amount" value=20> <br>
+
+    <label for="label_discount">Enter the discount percentage</label>
+    <input type ="number" id="offer_discount" value="10"> <br>
+
+    <input type="button" onclick="discount()" value="Apply discount">
+</form>
+
+
+<!-- <p id="result">This text will be replaced </p> -->
+
+<script> 
+
+function discount (){
+    console.log("Getting form values")
+    base_amount = document.getElementById("base_amount").value
+    discount1 = document.getElementById("offer_discount").value
+    var result = ""
+    if(confirmed){
+        out.innerHTML = "Values were confirmed"
+    } else {
+        out.innerHTML = "Values were not confirmed"
+    }
+}
+</script>
+
+</body>
+</html> 
