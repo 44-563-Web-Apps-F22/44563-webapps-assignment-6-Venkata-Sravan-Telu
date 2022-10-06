@@ -44,10 +44,13 @@ var wrong = 0
               alert("Wrong musician");
                 out.innerHTML = wrong;
               if(wrong>=3){
-                  WrongAlert()
+                gameOver()
                 }
             }
         } 
+function gameOver(){
+    alert('Sorry, game over.')
+}
 var useImage = 1
 function swapImage(){
     switch(useImage){
