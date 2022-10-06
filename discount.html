@@ -9,30 +9,59 @@
 
 <form>
     <label for="label_amount">Enter base amount</label>
-    <input type ="number" id="base_amount" value=20> <br>
+    <input type ="number" id="base_amount" min=10 max=50 step=1 value=20> <br>
 
     <label for="label_discount">Enter the discount percentage</label>
-    <input type ="number" id="offer_discount" value="10"> <br>
+    <input type ="number" id="offer_discount"  value=10 min=0 max=500 step=1> <br>
 
     <input type="button" onclick="discount()" value="Apply discount">
 </form>
 
 
-<!-- <p id="result">This text will be replaced </p> -->
+<p id="result"></p>
 
+<form>
+    <input type="radio" id="times" name="oper" value="times" onclick="chooseOp()">
+    <label for="times">*</label></br>
+    <input type="radio" id="divide" name="oper" 
+       value="divide" onclick="chooseOp()">
+    <label for="divide">/</label></br>
+    <input type="radio" id="exponent" name="oper"   
+       value="exponent" onclick="chooseOp()">
+    <label for="exponent">**</label></br>
+</form>
+<p id="form_para"></p>
 <script> 
 
 function discount (){
-    console.log("Getting form values")
-    base_amount = document.getElementById("base_amount").value
-    discount1 = document.getElementById("offer_discount").value
-    var result = ""
-    if(confirmed){
-        out.innerHTML = "Values were confirmed"
-    } else {
-        out.innerHTML = "Values were not confirmed"
+    amountValue = document.getElementById("base_amount").value
+    discountValue = document.getElementById("offer_discount").value
+    result = ""
+    amount = amountValue
+    count = 1
+    for(i = 0;i<5;i++){
+        temp = amount - (amount * (discountValue/100))
+        result = result + " " + temp
+        count+=1
+        amount = amountValue * (count)
     }
+    out = document.getElementById("result")
+    out.innerHTML = "Discounted amounts for base "+ amountValue  +" are "+ result;    
 }
+function chooseOp(){
+    amountValue = document.getElementById("base_amount").value
+    discountValue = document.getElementById("offer_discount").value    
+    if(document.getElementById('times').checked) {
+        result1 = amountValue * discountValue
+    }
+    else if(document.getElementById('divide').checked){
+        result1 = amountValue / discountValue
+    }else{
+        result1 = amountValue ** discountValue
+    }
+    document.getElementById('form_para').innerHTML = result1
+}
+
 </script>
 
 </body>
